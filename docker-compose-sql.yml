@@ -1,0 +1,57 @@
+version: '1'
+services:
+  lxsqlnginx:
+    image: nginx
+    hostname: lxsqlnginx
+    container_name: lxsqlnginx
+    depends_on:
+      - sql1
+      - sql2
+      - sql3
+    ports:
+      - "1433:1433"
+    volumes:
+      - /root/nginx.conf:/etc/nginx/nginx.conf:ro
+    networks:
+      - skynet
+
+  sql1:
+    image: microsoft/mssql-server-linux
+    hostname: sql1
+    container_name: sql1
+    ports:
+      - "14331:1433"
+    environment:
+      - MSSQL_SA_PASSWORD=password
+      - ACCEPT_EULA=Y
+      - MSSQL_PID=express
+    networks:
+      - skynet
+  
+  sql2:
+    image: microsoft/mssql-server-linux
+    hostname: sql2
+    container_name: sql2
+    ports:
+      - "14332:1433"
+    environment:
+      - MSSQL_SA_PASSWORD=password
+      - ACCEPT_EULA=Y
+      - MSSQL_PID=express
+    networks:
+      - skynet
+
+    sql3:
+    image: microsoft/mssql-server-linux
+    hostname: sql3
+    container_name: sql3
+    ports:
+      - "14333:1433"
+    environment:
+      - MSSQL_SA_PASSWORD=password
+      - ACCEPT_EULA=Y
+      - MSSQL_PID=express
+    networks:
+      - skynet
+networks:
+  skynet:
