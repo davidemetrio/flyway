@@ -1,4 +1,4 @@
-version: '1'
+version: '3'
 services:
   lxsqlnginx:
     image: nginx
@@ -41,7 +41,7 @@ services:
     networks:
       - skynet
 
-    sql3:
+  sql3:
     image: microsoft/mssql-server-linux
     hostname: sql3
     container_name: sql3
