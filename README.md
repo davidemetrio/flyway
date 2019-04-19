@@ -311,3 +311,4 @@ I use [SemVer](http://semver.org/) for versioning. For the versions available, s
 ## Authors
 
 * **Douglas Minnaar** - *Initial work* - [drminnaar](https://github.com/drminnaar)
+* **Davi Dem'etrio** - *Upgrade Integration* - [davidemetrio](https://github.com/davidemetrio)
